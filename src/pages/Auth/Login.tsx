@@ -22,6 +22,7 @@ type LoginResponse = {
 
 const Login = () => {
   const navigate = useNavigate();
+
   const [form, setForm] = useState<LoginForm>({
     email: "",
     password: "",
@@ -47,8 +48,7 @@ const Login = () => {
       login(response.data.token, response.data.userDTO);
       navigate("/");
     } catch (error) {
-      console.error(error);
-      alert("Invalid credentials");
+      alert("Error");
     }
   };
 

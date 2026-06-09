@@ -11,6 +11,7 @@ type RegisterForm = {
 
 const Register = () => {
   const navigate = useNavigate();
+
   const [form, setForm] = useState<RegisterForm>({
     username: "",
     email: "",
@@ -41,11 +42,13 @@ const Register = () => {
 
     try {
       await api.post("/auth/register", form);
-      alert("Registration successful");
-      navigate("/login");
+      navigate("/verify", {
+        state: {
+          email: form.email,
+        },
+      });
     } catch (error) {
-      console.error(error);
-      alert("Registration failed");
+      alert("Error");
     }
   };
 

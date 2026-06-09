@@ -8,6 +8,7 @@ import About from "./pages/User/About";
 import Color from "./pages/User/Color";
 import ProtectedRoute from "./components/ProtectedRoute";
 import OAuthSuccess from "./pages/OAuthSuccess";
+import VerifyOtp from "./pages/Auth/VerifyOtp";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/verify" element={<VerifyOtp />} />
         </Route>
 
         <Route path="/oauth-success" element={<OAuthSuccess />} />

@@ -10,7 +10,7 @@ const Navbar = () => {
   const token = localStorage.getItem("token");
 
   const navLinks = [
-    { id: 1, name: "HOME", href: "" },
+    { id: 1, name: "HOME", href: "/" },
     { id: 2, name: "PRODUCTS", href: "product" },
     { id: 3, name: "COLORS", href: "color" },
     { id: 5, name: "ABOUT", href: "about" },
