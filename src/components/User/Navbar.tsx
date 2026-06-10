@@ -28,8 +28,8 @@ const Navbar = () => {
   };
 
   return (
-    <nav>
-      <div className="mx-auto flex items-center justify-between p-4">
+    <nav className="shadow-sm">
+      <div className="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
         {/* Logo */}
         <div className="text-2xl font-bold">
           <span className="text-primary">MN</span> HARDWARES

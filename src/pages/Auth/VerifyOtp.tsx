@@ -25,7 +25,7 @@ const VerifyOtp = () => {
 
       navigate("/");
     } catch (error) {
-      alert("Error");
+      console.log(error);
     }
   };
 
@@ -36,16 +36,18 @@ const VerifyOtp = () => {
       });
 
       alert(response.data);
-    } catch (error: any) {
-      alert("Error");
+    } catch (error) {
+      console.log(error);
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8">
+    <div className="flex justify-center p-4">
+      <div className="flex flex-col justify-center p-4 gap-4 w-lg">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-800">Verify OTP</h1>
+          <h1 className="text-3xl font-bold text-gray-800">
+            <span className="text-primary">VERIFY</span> OTP
+          </h1>
 
           <p className="mt-2 text-sm text-gray-500">
             We've sent a verification code to
@@ -57,16 +59,15 @@ const VerifyOtp = () => {
         <form onSubmit={handleVerify} className="space-y-6">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Verification Code
+              Enter Verification Code
             </label>
 
             <input
               type="text"
               value={otp}
               onChange={(e) => setOtp(e.target.value)}
-              placeholder="Enter 6-digit OTP"
               maxLength={6}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all tracking-[0.4em] text-center text-lg font-semibold"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg outline-none text-center text-lg font-semibold"
             />
           </div>
 
