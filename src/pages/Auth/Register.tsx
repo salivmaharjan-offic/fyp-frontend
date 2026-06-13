@@ -13,8 +13,6 @@ type RegisterForm = {
 const Register = () => {
   const navigate = useNavigate();
 
-  const [error, setError] = useState();
-
   const [form, setForm] = useState<RegisterForm>({
     username: "",
     email: "",
@@ -56,7 +54,7 @@ const Register = () => {
   };
 
   return (
-    <div className="flex justify-center p-12">
+    <div className="flex justify-center p-12 bg-zinc-950 text-zinc-50">
       {/* Form */}
       <div className="flex flex-col justify-center p-4 gap-4 w-lg">
         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center">
@@ -64,45 +62,47 @@ const Register = () => {
         </h1>
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <div className="flex flex-col gap-2">
-            <label>Username:</label>
+            <label className="font-semibold">Username:</label>
             <input
               type="text"
               name="username"
               value={form.username}
               onChange={handleChange}
               placeholder="Enter username"
-              className="px-2 py-4 border border-black outline-none rounded"
+              autoComplete="off"
+              className="px-2 py-4 border border-zinc-50 outline-none rounded"
             />
           </div>
           <div className="flex flex-col gap-2">
-            <label>Email:</label>
+            <label className="font-semibold">Email:</label>
             <input
               type="email"
               name="email"
               value={form.email}
               onChange={handleChange}
               placeholder="Enter email"
-              className="px-2 py-4 border border-black outline-none rounded"
+              autoComplete="off"
+              className="px-2 py-4 border border-zinc-50 outline-none rounded"
             />
           </div>
           <div className="flex flex-col gap-2">
-            <label>Password:</label>
+            <label className="font-semibold">Password:</label>
             <input
               type="password"
               name="password"
               value={form.password}
               onChange={handleChange}
               placeholder="Enter password"
-              className="px-2 py-4 border border-black outline-none rounded"
+              className="px-2 py-4 border border-zinc-50 outline-none rounded"
             />
           </div>
           <div className="flex flex-col gap-2">
-            <label>Role:</label>
+            <label className="font-semibold">Role:</label>
             <select
               name="role"
               value={form.role}
               onChange={handleSelectChange}
-              className="px-2 py-4 border border-black outline-none rounded"
+              className="px-2 py-4 border border-zinc-50 bg-zinc-950 outline-none rounded"
             >
               <option value="">Select role</option>
               <option value="CUSTOMER">User</option>
@@ -116,7 +116,7 @@ const Register = () => {
           />
           <button
             onClick={googleLogin}
-            className="border border-black py-4 rounded cursor-pointer flex gap-2 items-center justify-center"
+            className="border border-zinc-50 py-4 rounded cursor-pointer flex gap-2 items-center justify-center font-semibold"
           >
             <FcGoogle size={24} />
             Continue with Google
@@ -124,7 +124,7 @@ const Register = () => {
         </form>
 
         <NavLink to="/login">
-          <div className="flex gap-2 items-center">
+          <div className="flex gap-2 items-center font-semibold">
             Already Registered?
             <span className="text-primary text-sm hover:underline cursor-pointer">
               Login Now

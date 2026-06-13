@@ -2,6 +2,8 @@ import { useState } from "react";
 import { MdOutlineMenu } from "react-icons/md";
 import { NavLink, useNavigate } from "react-router";
 import { useAuth } from "../../context/AuthContext";
+import { BiCart, BiUser } from "react-icons/bi";
+import { CgUser } from "react-icons/cg";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -13,6 +15,7 @@ const Navbar = () => {
     { id: 1, name: "HOME", href: "/" },
     { id: 2, name: "PRODUCTS", href: "product" },
     { id: 3, name: "COLORS", href: "color" },
+    { id: 4, name: "PAINTERS", href: "painter" },
     { id: 5, name: "ABOUT", href: "about" },
   ];
 
@@ -22,18 +25,15 @@ const Navbar = () => {
     navigate("/login");
   };
 
-  const handleLogout = () => {
-    logout();
-    navigate("/login");
-  };
-
   return (
-    <nav className="shadow-sm">
-      <div className="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
+    <nav className="shadow-sm bg-zinc-950 text-zinc-50">
+      <div className="max-w-7xl mx-auto p-6 flex items-center justify-between ">
         {/* Logo */}
-        <div className="text-2xl font-bold">
-          <span className="text-primary">MN</span> HARDWARES
-        </div>
+        <NavLink to="/">
+          <div className="text-2xl font-bold">
+            <span className="text-primary">MN</span> HARDWARES
+          </div>
+        </NavLink>
 
         {/* Desktop Menu */}
         <div className="hidden font-semibold gap-6 md:flex">
@@ -41,7 +41,7 @@ const Navbar = () => {
             <NavLink
               key={link.id}
               to={link.href}
-              className="hover:text-primary"
+              className="hover:text-primary transition-all"
             >
               {link.name}
             </NavLink>
@@ -49,17 +49,16 @@ const Navbar = () => {
         </div>
 
         {token ? (
-          <button
-            onClick={handleLogout}
-            className="hidden md:flex border px-4 py-2"
-          >
-            LOGOUT
-          </button>
+          <div className="hidden md:flex gap-4 items-center justify-center">
+            <button onClick={() => navigate("/profile/detail")}>
+              <BiCart size={26} />
+            </button>
+            <button onClick={() => navigate("/profile/detail")}>
+              <CgUser size={28} />
+            </button>
+          </div>
         ) : (
-          <button
-            onClick={handleLogin}
-            className="hidden md:flex border px-4 py-2"
-          >
+          <button onClick={handleLogin} className="border px-4 py-2">
             LOGIN
           </button>
         )}
@@ -67,7 +66,7 @@ const Navbar = () => {
         {/* Auth */}
 
         {/* Mobile Button */}
-        <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
+        <button className="flex md:hidden" onClick={() => setIsOpen(!isOpen)}>
           <MdOutlineMenu size={32} className="hover:text-primary" />
         </button>
       </div>
@@ -85,9 +84,20 @@ const Navbar = () => {
             </NavLink>
           ))}
           {token ? (
-            <button onClick={handleLogout} className="border px-4 py-2">
-              LOGOUT
-            </button>
+            <div className="flex flex-col gap-4">
+              <button
+                onClick={() => navigate("/profile/detail")}
+                className="border px-4 py-2"
+              >
+                Cart
+              </button>
+              <button
+                onClick={() => navigate("/profile/detail")}
+                className="border px-4 py-2"
+              >
+                Profile
+              </button>
+            </div>
           ) : (
             <button onClick={handleLogin} className="border px-4 py-2">
               LOGIN

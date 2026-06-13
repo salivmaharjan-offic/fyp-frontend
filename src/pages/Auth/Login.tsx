@@ -54,14 +54,14 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center p-12">
+    <div className="flex justify-center p-12 bg-zinc-950 text-zinc-50">
       {/* Form */}
       <div className="flex flex-col justify-center p-4 gap-4 w-lg">
         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center">
           <span className="text-primary">LOGIN</span> FORM
         </h1>
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 font-semibold">
             <label>Email:</label>
             <input
               type="email"
@@ -69,11 +69,11 @@ const Login = () => {
               value={form.email}
               onChange={handleChange}
               placeholder="Enter your email"
-              className="px-2 py-4 border border-black outline-none rounded"
+              className="px-2 py-4 border border-zinc-50 outline-none rounded"
               autoComplete="off"
             />
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 font-semibold">
             <label>Password</label>
             <input
               type="password"
@@ -81,11 +81,11 @@ const Login = () => {
               value={form.password}
               onChange={handleChange}
               placeholder="Enter your password"
-              className="px-2 py-4 border border-black outline-none rounded"
+              className="px-2 py-4 border border-zinc-50 outline-none rounded"
             />
           </div>
           <div className="flex justify-end">
-            <span className="text-primary text-sm hover:underline cursor-pointer">
+            <span className="text-primary text-sm hover:underline cursor-pointer font-semibold">
               Forgot Password?
             </span>
           </div>
@@ -96,7 +96,7 @@ const Login = () => {
           />
           <button
             onClick={googleLogin}
-            className="border border-black py-4 rounded cursor-pointer flex gap-2 items-center justify-center"
+            className="border border-zinc-50 py-4 rounded cursor-pointer flex gap-2 items-center justify-center font-semibold"
           >
             <FcGoogle size={24} />
             Login with Google
@@ -104,7 +104,7 @@ const Login = () => {
         </form>
 
         <NavLink to="/register">
-          <div className="flex gap-2 items-center">
+          <div className="flex gap-2 items-center font-semibold">
             New Here?
             <span className="text-primary text-sm hover:underline cursor-pointer">
               Register Now
